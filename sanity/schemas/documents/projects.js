@@ -29,6 +29,16 @@ export default {
             type: 'slider'
         },
         {
+            name: 'year',
+            title: 'Year',
+            type: 'string'
+        },
+        {
+            name: 'city',
+            title: 'City',
+            type: 'string'
+        },
+        {
             name: 'description',
             title: 'Description',
             type: 'text'
