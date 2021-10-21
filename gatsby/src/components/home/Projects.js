@@ -1,73 +1,36 @@
 import React from 'react'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Link } from 'gatsby';
 import styled from 'styled-components'
-import {TimelineMax } from 'gsap';
-import ScrollMagic from "scrollmagic";
 
-export default function Projects() {
 
-    var controller = new ScrollMagic.Controller({
-        globalSceneOptions: {
-          triggerHook: 'onLeave',
-          duration: "700%" // this works just fine with duration 0 as well
-          // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
-          // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
-        }
-      });
 
-      // get all slides
-      var slides = document.querySelectorAll("section.panel");
-
-        for (var i = 0; i < slides.length; i++) {
-          var wipeAnimation = new TimelineMax()     
-            .to(slides[i], 1, { height: "0%"});
-
-        new ScrollMagic.Scene({
-          triggerElement: slides[i]
-        })
-          .setPin(slides[i], { pushFollowers: false })
-          .setTween(wipeAnimation)
-          // .addIndicators() // add indicators (requires plugin)
-          .addTo(controller);
-      }
+const Projects = ( {data}) => {
 
     return(
-        <ProjectsContainer>
-             <section class="panel center h90">
-                <img src="./img/01.jpg" />
-            </section>
-            <section class="panel right h70">
-                <img src="./img/02.jpg" />
-            </section>
-            <section class="panel left h80">
-                <img src="./img/03.jpg" />
-            </section>
-            <section class="panel center h50">
-                <img src="./img/04.jpg" />
-            </section>
-            <section class="panel left h80">
-                <img src="./img/05.jpg" />
-            </section>
-            <section class="panel right h90">
-                <img src="./img/06.jpg" />
-            </section>
-            <section class="panel center h70">
-                <img src="./img/07.jpg" />
-            </section>
-            <section class="panel right h70">
-                <img src="./img/08.jpg" />
-            </section>
-            <section class="panel left h80">
-                <img src="./img/09.jpg" />
-            </section>
-            <section class="panel center h60">
-                <img src="./img/10.jpg" />
-            </section>
-        </ProjectsContainer>
+      <ProjectsContainer>
+
+        {data.sanityHomePage.projects.map(({ height, alignment, image, _key, selectProject }) => {
+          const getDataImage = getImage(image.asset);
+          return (
+            <section class="panel center h90" key={_key} className={`panel ${height} ${alignment}`}>
+              <Link to={`${selectProject.slug.current}`}>
+                <GatsbyImage
+                  image={getDataImage}
+                  alt={image.alt}
+                  style={{ height: "100%", width: "100%" }}
+                />
+              </Link>
+              </section>
+            )
+          })}
+      </ProjectsContainer>
     )
 }
 
 const ProjectsContainer = styled.section`
 width: 100vw;
+height: 100vh;
 position: relative;
 .panel {
   position: relative;
@@ -79,6 +42,9 @@ position: relative;
   justify-content: center;
   padding: 0 8rem;
   cursor: pointer;
+}
+.panel a {
+  display: contents;
 }
 
 .panel.left {
@@ -161,3 +127,5 @@ position: relative;
 }
 
 `
+
+export default Projects;

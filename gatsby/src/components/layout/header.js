@@ -75,6 +75,7 @@ const HeadeContainer = styled.nav`
 position: fixed;
 width: 100%;
 height: 50px;
+z-index: 1;
 .projects {
     position: fixed;
     top: 0;
@@ -108,6 +109,12 @@ height: 50px;
             display: inline;
             a, button {
                 text-transform: uppercase;
+                color: black
+            }
+            button {
+                text-transform: uppercase;
+                width: auto;
+                margin-right: 30px;
             }
         }
     }
