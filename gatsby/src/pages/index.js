@@ -13,6 +13,7 @@ export const data = graphql`
         alignment
         image {
           asset {
+            url
             gatsbyImageData(
               layout: FULL_WIDTH
               outputPixelDensities: 1.5

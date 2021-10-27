@@ -11,7 +11,7 @@ export default {
         {
             name: 'video',
             title: 'Video',
-            type: 'file'
+            type: 'videoSlide'
         },
     ],
     preview: {

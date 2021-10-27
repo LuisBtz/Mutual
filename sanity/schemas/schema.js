@@ -15,6 +15,7 @@ import blockModule from './objects/blockModule'
 import project from './objects/project'
 import projectsHome from './objects/projectsHome'
 import instagram from './objects/instagram'
+import videoSlide from './objects/videoSlide'
 
 import homePage from './documents/homePage'
 import aboutPage from './documents/aboutPage'
@@ -42,6 +43,7 @@ export default createSchema({
     project,
     projectsHome,
     instagram,
+    videoSlide,
 
     homePage,
     aboutPage,

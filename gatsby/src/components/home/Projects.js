@@ -1,20 +1,52 @@
-import React from 'react'
+import React, { useLayoutEffect, useRef } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby';
 import styled from 'styled-components'
+import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
+import { gsap, TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 
 
 const Projects = ( {data}) => {
+  const ProjectRef = useRef(null);
 
+  useLayoutEffect(() => {
+    var controller = new ScrollMagic.Controller({
+      globalSceneOptions: {
+        triggerHook: "onLeave",
+        duration: "700%",
+      },
+    });
+
+    // get all slides
+    // var slides = ProjectRef.current.querySelectorAll("section.panel"); //an use both but using gsap is right option here
+    const q = gsap.utils.selector(ProjectRef);
+    const slides = q("section.panel");
+
+    for (var i = 0; i < slides.length; i++) {
+      var wipeAnimation = new TimelineMax().to(slides[i], 1, { height: "0%" });
+
+      new ScrollMagic.Scene({
+        triggerElement: slides[i],
+      })
+        .setPin(slides[i], { pushFollowers: false })
+        .setTween(wipeAnimation)
+        // .addIndicators() // add indicators (requires plugin)
+        .addTo(controller);
+    }
+  }, []);
     return(
-      <ProjectsContainer>
+      <ProjectsContainer ref={ProjectRef}>
 
         {data.sanityHomePage.projects.map(({ height, alignment, image, _key, selectProject }) => {
           const getDataImage = getImage(image.asset);
           return (
-            <section class="panel center h90" key={_key} className={`panel ${height} ${alignment}`}>
+            <section key={_key} className={`panel ${height} ${alignment}`}>
               <Link to={`${selectProject.slug.current}`}>
+                {/* <img scr={image.asset.url} alt={image.alt} /> */}
                 <GatsbyImage
                   image={getDataImage}
                   alt={image.alt}
@@ -29,9 +61,6 @@ const Projects = ( {data}) => {
 }
 
 const ProjectsContainer = styled.section`
-width: 100vw;
-height: 100vh;
-position: relative;
 .panel {
   position: relative;
   margin-bottom: 300px;
@@ -41,7 +70,6 @@ position: relative;
   align-items: center;
   justify-content: center;
   padding: 0 8rem;
-  cursor: pointer;
 }
 .panel a {
   display: contents;
@@ -58,7 +86,6 @@ position: relative;
 .panel img {
   max-height: 100%;
   height: inherit;
-  width: auto;
 }
 
 .panel.h10 img {
