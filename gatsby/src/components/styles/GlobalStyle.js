@@ -23,6 +23,9 @@ export const GlobalStyle = createGlobalStyle`
       --detail-xs: 0.512rem;
       --gutter: 1rem;
     }
+    * {
+      box-sizing: border-box;
+    }
     body {
         background-color: var(--white);
         font-family: var(--regular);

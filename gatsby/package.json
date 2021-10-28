@@ -28,12 +28,14 @@
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-source-sanity": "^7.0.7",
     "gatsby-transformer-sharp": "^3.14.0",
+    "gsap": "^3.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.3.1",
-    "gsap": "^3.8.0",
+    "react-slick": "^0.28.1",
     "scrollmagic": "^2.0.8",
-    "scrollmagic-plugin-gsap": "^1.0.4"
+    "scrollmagic-plugin-gsap": "^1.0.4",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.1"
   }
 }

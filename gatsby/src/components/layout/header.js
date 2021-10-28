@@ -19,6 +19,14 @@ const Header = () => {
                 }
             }
         }
+        sanitySettingsPage {
+            logo {
+            alt
+            asset {
+                url
+            }
+            }
+        }
     }
     `)
 
@@ -37,6 +45,9 @@ const Header = () => {
                 }>
                 <img src='./icon.svg' alt='Mutual icon' />
             </button>
+            <Link to='/' className='logo'>
+                <img src={data.sanitySettingsPage.logo.asset.url} alt={data.sanitySettingsPage.logo.alt} />
+            </Link>
             {menu ? 
                 <ul className='menu'>
                     <li><button onClick={() => showProjects(!projects)}>Work</button></li>
@@ -76,6 +87,15 @@ position: fixed;
 width: 100%;
 height: 50px;
 z-index: 1;
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    transform: translateX(-50%);
+    img {
+        width: 137px;
+    }
+}
 .projects {
     position: fixed;
     top: 0;
@@ -94,8 +114,8 @@ z-index: 1;
 }
     .icon {
         position: absolute;
-        left: 16px;
-        top: 14px;
+        left: 15px;
+        top: 15px;
         width: 20px;
         z-index: 3;
     }
