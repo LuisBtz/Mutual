@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import { Link } from 'gatsby';
 // import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components";
-import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
+import * as ScrollMagic from "scrollmagic-with-ssr"; // Or use scrollmagic-with-ssr to avoid server rendering problems
 import { gsap, TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
