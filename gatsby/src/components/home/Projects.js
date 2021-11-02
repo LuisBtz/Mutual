@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { Link } from 'gatsby';
+// import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components";
 import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
 import { gsap, TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
@@ -40,9 +41,15 @@ const Projects = ({data}) => {
     <ProjectsContainer ref={ProjectRef}>
 
     {data.sanityHomePage.projects.map(({ height, alignment, image, _key, selectProject }) => {
+        // const getDataImage = getImage(image.asset);
       return (
         <section key={_key} className={`panel ${height} ${alignment}`}>
           <Link to={`${selectProject.slug.current}`}>
+          {/* <GatsbyImage
+            style={{ height: "100%", width: "100%" }}
+            image={getDataImage}
+            alt={image.alt}
+          /> */}
             <img src={image.asset.url} alt={image.alt} />
           </Link>
         </section>

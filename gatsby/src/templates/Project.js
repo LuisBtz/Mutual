@@ -4,8 +4,28 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import styled from 'styled-components'
 import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+// import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick";
+
+
+
+function SampleNextArrow(props) {
+    const { className, onClick } = props;
+    return (
+        <button className={className} onClick={onClick} onKeyDown={onClick}>
+            <p>→</p>
+        </button>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, onClick } = props;
+    return (
+        <button className={className} onClick={onClick} onKeyDown={onClick}>
+            <p>←</p>
+        </button>
+    );
+  }
 
 
 // markup
@@ -21,10 +41,12 @@ const SingleProjectPage = ( { data: { project } } ) => {
         speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 4000,
-        pauseOnHover: true,
+        pauseOnHover: false,
         fade: false,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
         };
 
 
@@ -71,6 +93,16 @@ const SingleProjectPage = ( { data: { project } } ) => {
                     <h1>({project.projectName})</h1>
                     <p>{project.description}</p>
                 </div>
+                <div className='specs'>
+                    {project.specs.map(({ _key, label, value }) => {
+                            return (
+                                <div key={_key}>
+                                    <p className='label'>{label}</p><p className='value'>{value}</p>
+                                </div>
+                                )
+                    })}
+
+                </div>
             </DescriptionContainer>
         </Contenedor>
     </Layout>
@@ -87,6 +119,9 @@ const Contenedor = styled.div`
 .altura {
         height: 70vh;
         transition: all 350ms ease-in-out;
+        @media (max-width: 830px) {
+            height: 50vh;
+        }
     }
 `
 
@@ -122,8 +157,34 @@ const DescriptionContainer = styled.div`
     padding-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    @media (max-width: 830px) {
+        height: auto;
+    }
     .description {
         grid-column: 1/5;
+        @media (max-width: 1060px) {
+            grid-column: 1/8 !important;
+        }
+        @media (max-width: 830px) {
+            margin-bottom: 25px;
+            grid-column: 1/13 !important;
+        }
+    }
+    .specs {
+        grid-column: 6/13;
+        @media (max-width: 1060px) {
+            grid-column: 9/13 !important;
+        }
+        @media (max-width: 830px) {
+            grid-column: 1/13 !important;
+        }
+        p {
+            display: inline-block;
+        }
+        .label {
+            width: 150px;
+        }
+        
     }
     h1 {
         font-size: 20px;
@@ -137,10 +198,29 @@ const DescriptionContainer = styled.div`
 const SliderContainer = styled(Slider)`
 padding-top: 50px;
 width: auto;
+.slick-arrow {
+    position: absolute;
+    z-index: 1;
+    p {
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+}
+.slick-prev {
+    bottom: -25px !important;
+    right: 35px;
+}
+.slick-next {
+    right: 0 !important;
+    bottom: -25px !important;
+}
 .active {
     .slideCont {
         transition: all 350ms ease-in-out;
         height: calc(70vh - 100px);
+        @media (max-width: 830px) {
+            height: calc(50vh - 100px);
+        }
     }
 }
 
@@ -202,6 +282,7 @@ export const query = graphql`
                 }
             }
             specs {
+                _key
                 label
                 value
             }

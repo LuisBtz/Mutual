@@ -171,12 +171,12 @@ button svg {
   height: 100%;
 }
 
-a {
+/* a {
   text-decoration: none;
   font-family: serif;
   color: black;
   font-size: 13px;
-}
+} */
 
 @media screen and (max-width: 767px) {
   header a {

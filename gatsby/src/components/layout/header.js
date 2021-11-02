@@ -59,6 +59,11 @@ const Header = () => {
 
             {
                 projects ?
+                <div className='overlay' onClick={() => {
+                    showMenu(!menu)
+                    showProjects(!falseState)
+                    }
+                    }>
                     <div className='projects'>
                         <ul>
                             {data.allSanityProjects.edges.map(({ node }) => {
@@ -67,13 +72,14 @@ const Header = () => {
                                         <Link
                                             to={`/${node.slug.current}`}
                                         >
-                                            {node.year} {node.projectName} {node.city}
+                                            <p className='year'>{node.year} {node.projectName}</p> <p className='city'>{node.city}</p>
                                         </Link>
                                     </li>
                                 )
                             })}
                         </ul>
                     </div>
+                </div>
                     :
                     ''
             }
@@ -96,18 +102,34 @@ z-index: 1;
         width: 137px;
     }
 }
-.projects {
+.overlay {
+    background: rgba(0,0,0,0.5);
     position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.projects {
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     background-color: white;
     padding: 70px 20px 0;
     z-index: 2;
+    width: 450px;
     ul {
+        width: 100%;
         li {
+            width: 100%;
             a {
                 text-transform: uppercase;
+                color: black;
+                text-align: justify;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
             }
         }
     }
@@ -131,10 +153,11 @@ z-index: 1;
                 text-transform: uppercase;
                 color: black
             }
-            button {
+            button, a {
                 text-transform: uppercase;
                 width: auto;
-                margin-right: 30px;
+                margin-right: 20px;
+                font-weight: normal;
             }
         }
     }
