@@ -8,13 +8,16 @@ import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
 
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+
+if (typeof window !== 'undefined') {
+  ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+}
+
 
 const Projects = ({data}) => {
   const ProjectRef = useRef(null);
 
   useLayoutEffect(() => {
-    if(typeof window !== undefined){
     var controller = new ScrollMagic.Controller({
       globalSceneOptions: {
         triggerHook: "onLeave",
@@ -38,7 +41,6 @@ const Projects = ({data}) => {
         // .addIndicators() // add indicators (requires plugin)
         .addTo(controller);
     }
-  }
   }, []);
 
   return (
