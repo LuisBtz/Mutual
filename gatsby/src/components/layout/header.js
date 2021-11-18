@@ -48,6 +48,15 @@ const Header = () => {
             <Link to='/' className='logo'>
                 <img src={data.sanitySettingsPage.logo.asset.url} alt={data.sanitySettingsPage.logo.alt} />
             </Link>
+
+            {menu ? 
+            ''
+            : 
+            <Link to='/' className='logo-m'>
+                <img src={data.sanitySettingsPage.logo.asset.url} alt={data.sanitySettingsPage.logo.alt} />
+            </Link>
+            }
+
             {menu ? 
                 <ul className='menu'>
                     <li><button onClick={() => showProjects(!projects)}>Work</button></li>
@@ -101,6 +110,21 @@ z-index: 1;
     img {
         width: 137px;
     }
+    @media (max-width: 830px) {
+        display: none;
+    }
+}
+.logo-m {
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    transform: translateX(-50%);
+    img {
+        width: 137px;
+    }
+    @media (max-width: 830px) {
+        display: block;
+    }
 }
 .overlay {
     background: rgba(0,0,0,0.5);
@@ -119,6 +143,9 @@ z-index: 1;
     padding: 70px 20px 0;
     z-index: 2;
     width: 450px;
+    @media (max-width: 650px) {
+        width: 100%;
+    }
     ul {
         width: 100%;
         li {
@@ -130,6 +157,16 @@ z-index: 1;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                @media (max-width: 415px) {
+                    p {
+                        font-size: 0.9rem;
+                    }
+                }
+                @media (max-width: 350px) {
+                    p {
+                        font-size: 0.75rem;
+                    }
+                }
             }
         }
     }
@@ -158,6 +195,15 @@ z-index: 1;
                 width: auto;
                 margin-right: 20px;
                 font-weight: normal;
+            }
+        }
+        @media (max-width: 830px) {
+            width: calc(100% - 70px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            li {
+                margin-right: 0;
             }
         }
     }
