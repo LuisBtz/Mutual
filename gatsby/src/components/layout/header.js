@@ -52,7 +52,6 @@ const Header = () => {
           alt={data.sanitySettingsPage.logo.alt}
         />
       </Link>
-
       {menu ? (
         ""
       ) : (
@@ -128,8 +127,7 @@ background: white;
       display: none;
     }
   }
-  .logo-m {
-    position: absolute;
+  .logo-m {    position: absolute;
     left: 50%;
     top: 14px;
     transform: translateX(-50%);
@@ -145,62 +143,7 @@ background: white;
     opacity: 1;
     transition: all ease-in-out 500ms;
   }
-  
-  .projects {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    bottom: 0;
-    background-color: white;
-    padding: 70px 20px 0;
-    z-index: 2;
-    width: 450px;
-    transition: left ease-in-out 500ms;
-    @media (max-width: 650px) {
-      width: 100%;
-    }
-    ul {
-      width: 100%;
-      li {
-        width: 100%;
-        a {
-          text-transform: uppercase;
-          color: black;
-          text-align: justify;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          transition: color ease-in-out 350ms;
-          &:hover {
-            color: #AFB1B1 !important;
-          }
-          @media (max-width: 415px) {
-            p {
-              font-size: 0.9rem;
-            }
-          }
-          @media (max-width: 350px) {
-            p {
-              font-size: 0.75rem;
-            }
-          }
-        }
-      }
-    }
-  }
 
-  .show-proj {
-    display: block;
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 1;
-    .projects {
-      left: 0;
-    }
   }
   
   .icon {
