@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <button onClick="darkMode()">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+          y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+          <style type="text/css">
+            .st0 {fill: #FFFFFF;} .st1 {fill: #231F20;} .st2 {fill: #D9D8D6;} .st3 {fill: #F3F2F2;}
+          </style>
+          <path d="M10,1c-5,0-9,4-9,9c0,5,4,9,9,9s9-4,9-9C19,5,15,1,10,1z M10,10c-2.3,0-4.2,1.9-4.2,4.2c0,2.2,1.8,4,4,4.2
+              	c-4.5-0.1-8.1-3.8-8.1-8.3c0-4.6,3.7-8.3,8.3-8.3c2.3,0,4.2,1.9,4.2,4.2C14.2,8.1,12.3,10,10,10z" />
+        </svg>
+      </button>
+
+      <a href="index.html"><img src="img/logo.svg"></a>
+    </header>
+
+     
+        <section class="panel center h90">
+          <img src="img/01.jpg">
+        </section>
+        <section class="panel right h70">
+          <img src="img/02.jpg">
+        </section>
+        <section class="panel left h80">
+          <img src="img/03.jpg">
+        </section>
+        <section class="panel center h50">
+          <img src="img/04.jpg">
+        </section>
+        <section class="panel left h80">
+          <img src="img/05.jpg">
+        </section>
+        <section class="panel right h90">
+          <img src="img/06.jpg">
+        </section>
+        <section class="panel center h70">
+          <img src="img/07.jpg">
+        </section>
+        <section class="panel right h70">
+          <img src="img/08.jpg">
+        </section>
+        <section class="panel left h80">
+          <img src="img/09.jpg">
+        </section>
+        <section class="panel center h60">
+          <img src="img/10.jpg">
+        </section>
+    
+
+    <script src="jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+      integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+      crossorigin="anonymous"></script>
+    <script src="TweenMax.js"></script>
+    <script src="ScrollMagic.js"></script>
+    <script src="animation.gsap.js"></script>
+    <script src="debug.addIndicators.js"></script>
+
+      <script>
+        function darkMode() {
+          $('body').toggleClass("dark");
+        };
+
+        $(function () { // wait for document ready
+          // init
+
+          var controller = new ScrollMagic.Controller({
+            globalSceneOptions: {
+              triggerHook: 'onLeave',
+              duration: "700%" // this works just fine with duration 0 as well
+              // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+              // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+            }
+          });
+
+          // get all slides
+          var slides = document.querySelectorAll("section.panel");
+
+            for (var i = 0; i < slides.length; i++) {
+              var wipeAnimation = new TimelineMax()
+                .to(slides[i], 1, { height: "0%"});
+
+            new ScrollMagic.Scene({
+              triggerElement: slides[i]
+            })
+              .setPin(slides[i], { pushFollowers: false })
+              .setTween(wipeAnimation)
+              // .addIndicators() // add indicators (requires plugin)
+              .addTo(controller);
+          }
+        });
+      </script>
+
+  </body>
+</html>
