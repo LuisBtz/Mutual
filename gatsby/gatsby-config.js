@@ -1,6 +1,6 @@
-const path = require('path');
+const path = require("path");
 
-const siteUrl = `https://www.netlify.com/`
+const siteUrl = `https://www.netlify.com/`;
 
 module.exports = {
   siteMetadata: {
@@ -27,6 +27,12 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/components/layout/layout.js`),
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {

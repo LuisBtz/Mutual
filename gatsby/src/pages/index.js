@@ -1,11 +1,11 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout/layout"
-import Seo from "../components/layout/seo"
-import Projects from "../components/home/Projects"
+import React from "react";
+import { graphql } from "gatsby";
+import Seo from "../components/layout/seo";
+import Projects from "../components/home/Projects";
+import Layout from "../components/layout/layout";
 
 export const data = graphql`
-  query  {
+  query {
     sanityHomePage {
       projects {
         _key
@@ -30,19 +30,20 @@ export const data = graphql`
       }
     }
   }
-`
-
-
+`;
 
 // markup
-const IndexPage = ( {data} ) => {
-
+// if something goes wrong remove layout tag just place fragment in every pages
+const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title='Home Page' /*image={data.sanityHomePage.exhibitionsHF.thumbnailCover.asset.url} */ />
-      <Projects data={data}/>
-    </Layout>
-  )
-}
+      <Seo
+        title="Home Page" /*image={data.sanityHomePage.exhibitionsHF.thumbnailCover.asset.url} */
+      />
 
-export default IndexPage
+      <Projects data={data} />
+    </Layout>
+  );
+};
+
+export default IndexPage;
