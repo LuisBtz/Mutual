@@ -76,10 +76,15 @@ const Projects = ({ data }) => {
                   let imageSide = imageLeft > xCenter ? imageRight : imageLeft;
                   let imageTopDecide =
                     imageTop > yCenter ? imageRight : imageTop;
+
+                  gsap.set(image.closest(".scrollmagic-pin-spacer"), {
+                    zIndex: 999,
+                  });
                   gsap.to(image, 1, {
-                    y: yCenter - (image.clientHeight / 2 + imageTopDecide),
-                    width: "80vw",
-                    height: "90vh",
+                    y: yCenter - (image.clientHeight / 2 + imageTop),
+                    width: "calc(100vw - 30px)",
+                    height: "100vh",
+                    margin: 0,
                   });
                 },
                 length: 1,
@@ -93,7 +98,7 @@ const Projects = ({ data }) => {
                     images,
                     1,
                     {
-                      scale: 1.05,
+                      scale: 1.3,
                     },
                     {
                       scale: 1,
@@ -130,7 +135,7 @@ const ProjectsContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 8rem;
+    /* padding: 0 8rem; */
     cursor: pointer;
   }
   .panel a {
@@ -149,6 +154,7 @@ const ProjectsContainer = styled.section`
     max-height: 100%;
     height: inherit;
     width: auto;
+    margin: 0 8rem;
     object-fit: cover;
   }
 

@@ -36,7 +36,6 @@ grid-template-columns: repeat(12, 1fr);
         font-weight: normal;
         position: static;
         width: 150px;
-        font-family: var(--regular);
     }
     ul {
         list-style: none;

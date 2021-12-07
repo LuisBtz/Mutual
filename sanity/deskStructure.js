@@ -15,7 +15,7 @@ export default () =>
         ),
         S.listItem()
         .title('Home')
-        .icon(() => '🏡')
+        .icon(() => '🏠')
         .child(
           S.document()
             .schemaType('homePage')
@@ -23,7 +23,7 @@ export default () =>
         ),
         S.listItem()
         .title('About')
-        .icon(() => '🤔')
+        .icon(() => 'ℹ️')
         .child(
           S.document()
             .schemaType('aboutPage')
@@ -31,7 +31,7 @@ export default () =>
         ),
         S.listItem()
         .title('Contact')
-        .icon(() => '☎️')
+        .icon(() => '✉️')
         .child(
           S.document()
             .schemaType('contactPage')

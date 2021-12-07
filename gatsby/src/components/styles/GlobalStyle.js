@@ -37,7 +37,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 100vw;
         overflow-x: hidden;
         position: relative;
-        webkit-font-smoothing: antialiased;
     }
 body.dark {
   background-color: black;
@@ -74,16 +73,9 @@ a, a:visited {
   text-decoration: none;
   color: #2e639e;
 }
-a, button {
-  transition: color ease-in-out 300ms;
-  color: black;
-  &:hover {
-    color: #AFB1B1 !important;
-  }
-}
 
-a:hover, button:hover {
-  text-decoration: none;
+a:hover {
+  text-decoration: underline;
 }
 
 .touchonly {
