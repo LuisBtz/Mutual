@@ -37,7 +37,8 @@ const SingleProjectPage = ({ data: { project } }) => {
     autoplay: false,
     autoplaySpeed: 4000,
     pauseOnHover: false,
-    fade: false,
+    waitForAnimate: true,
+    speed: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
@@ -200,6 +201,8 @@ const DescriptionContainer = styled.div`
     text-transform: uppercase;
     font-style: normal;
     padding-bottom: 30px;
+    font-family: var(--regular);
+    font-weight: normal;
   }
 `;
 
