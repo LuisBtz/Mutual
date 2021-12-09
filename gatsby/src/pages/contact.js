@@ -13,6 +13,9 @@ export const data = graphql`
         instagramName
       }
     }
+    sanitySettingsPage {
+      _rawCopyright
+    }
   }
 `;
 

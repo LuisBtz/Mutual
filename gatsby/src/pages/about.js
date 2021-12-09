@@ -14,6 +14,9 @@ export const data = graphql`
         url
       }
     }
+    sanitySettingsPage {
+      _rawCopyright
+    }
   }
 `;
 

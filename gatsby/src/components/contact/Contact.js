@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import BlockContent from '@sanity/block-content-to-react';
 
 const Contact = ({data}) => {
     return(
@@ -13,6 +14,12 @@ const Contact = ({data}) => {
                     <a href={data.sanityContactPage.instagram.instagramLink}>{data.sanityContactPage.instagram.instagramName}</a>
                 </div>
             </ContactSection>
+
+            <WorkBy>
+                <BlockContent
+                    blocks={data.sanitySettingsPage._rawCopyright}
+                />
+            </WorkBy>
         </ContactContainer>
     )
 }
@@ -49,6 +56,7 @@ grid-template-columns: repeat(12, 1fr);
     p, a {
         text-transform: uppercase;
         display: block;
+        color: black;
     }
 }
 `
@@ -63,6 +71,17 @@ grid-row: 1;
     grid-column: 1/13;
 }
 
+`
+
+const WorkBy = styled.div`
+    position: fixed;
+    bottom: 35px;
+    width: 100%;
+    text-align: center;
+    a {
+        color: black;
+        text-decoration: underline;
+    }
 `
 
 export default Contact

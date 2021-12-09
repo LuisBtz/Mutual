@@ -29,6 +29,12 @@ const About = ({data}) => {
                     })}
                 </ul>
             </PressSection>
+            <WorkBy>
+                <BlockContent
+                    blocks={data.sanitySettingsPage._rawCopyright}
+                />
+            </WorkBy>
+
         </AboutContainer>
     )
 }
@@ -39,6 +45,7 @@ width: 100%;
 margin: 0 auto;
 display: grid;
 grid-template-columns: repeat(12, 1fr);
+position: relative;
 .item {
     display: flex;
     margin-bottom: 30px;
@@ -87,5 +94,16 @@ grid-column: 6/10;
 @media (max-width: 650px) {
     grid-column: 1/13;
 }
+`
+
+const WorkBy = styled.div`
+    position: fixed;
+    bottom: 35px;
+    width: 100%;
+    text-align: center;
+    a {
+        color: black;
+        text-decoration: underline;
+    }
 `
 export default About 
