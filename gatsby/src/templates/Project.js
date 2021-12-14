@@ -139,6 +139,7 @@ const ContenedorImages = styled.div`
     width: 100%;
     button {
       position: relative;
+      font-size: 13px;
       top: 50%;
       transform: translateY(-50%);
       width: auto;
@@ -154,6 +155,9 @@ const ContenedorImages = styled.div`
     transform: translateX(-50%);
     @media (max-width: 830px) {
       display: block;
+      p {
+        font-size: 13px;
+      }
     }
   }
 `;
@@ -247,7 +251,13 @@ const SliderContainer = styled(Slider)`
       transition: all 350ms ease-in-out;
       height: calc(70vh - 100px);
       @media (max-width: 830px) {
-        height: calc(50vh - 100px);
+        height: calc(70vh - 130px);
+        img {
+          height: auto;
+        width: 100%;
+        align-self: center;
+        max-height: -webkit-fill-available;
+        }
       }
     }
   }
@@ -279,6 +289,7 @@ const Slide = styled.div`
         height: auto;
         width: 100%;
         align-self: center;
+        max-height: -webkit-fill-available;
       }
     }
     video {

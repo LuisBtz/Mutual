@@ -57,7 +57,6 @@ position: relative;
         font-style: normal;
         font-weight: normal;
         position: static;
-        width: 150px;
     }
     ul {
         list-style: none;
@@ -82,6 +81,18 @@ grid-row: 1;
 }
 @media (max-width: 650px) {
     grid-column: 1/13;
+    .left {
+        width: 30%;
+        h2, h1 {
+            fon-size: 13px;
+        }
+    }
+    .right {
+        width: 70%;
+        p {
+            fon-size: 13px;
+        }
+    }
 }
 
 `
@@ -93,6 +104,18 @@ grid-column: 6/10;
 }
 @media (max-width: 650px) {
     grid-column: 1/13;
+    .left {
+        width: 30%;
+        h2, h1 {
+            fon-size: 13px;
+        }
+    }
+    .right {
+        width: 70%;
+        p {
+            fon-size: 13px;
+        }
+    }
 }
 `
 

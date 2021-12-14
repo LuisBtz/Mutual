@@ -153,9 +153,9 @@ background: white;
     bottom: 0;
     background-color: white;
     padding: 70px 20px 0;
-    z-index: 2;
+    z-index: 999;
     width: 450px;
-    transition: left ease-in-out 500ms;
+    transition: all ease-in-out 500ms;
     @media (max-width: 650px) {
       width: 100%;
     }
@@ -198,8 +198,10 @@ background: white;
     bottom: 0;
     right: 0;
     opacity: 1;
+    z-index: 2;
     .projects {
       left: 0;
+      transition: all ease-in-out 500ms;
     }
   }
   
