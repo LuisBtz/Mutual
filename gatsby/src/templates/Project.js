@@ -25,13 +25,15 @@ function SamplePrevArrow(props) {
   );
 }
 
+
+
+
 // markup
 const SingleProjectPage = ({ data: { project } }) => {
   const settings = {
     centerPadding: "0",
     dots: false,
     infinite: true,
-    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
@@ -207,6 +209,7 @@ const DescriptionContainer = styled.div`
     padding-bottom: 30px;
     font-family: var(--regular);
     font-weight: normal;
+    -webkit-font-smoothing: antialiased;
   }
 `;
 
@@ -229,6 +232,7 @@ const SliderContainer = styled(Slider)`
     left: 0px;
     width: 50%;
     height: 85%;
+    z-index: 1;
     background-color: none;
     cursor: url('./prev.png'), auto;
     p {

@@ -31,6 +31,9 @@ width: 100%;
 margin: 0 auto;
 display: grid;
 grid-template-columns: repeat(12, 1fr);
+@media (max-width: 650px) {
+        display: block;
+    }
 .item {
     display: flex;
     margin-bottom: 30px;
@@ -66,18 +69,25 @@ grid-row: 1;
 @media (max-width: 950px) {
     grid-column: 5/11;
 }
+
+.left {
+        width: 30%;
+    }
+.right {
+    width: 70%;
+}
 @media (max-width: 650px) {
     grid-column: 1/13;
     .left {
         width: 30%;
         h2, h1 {
-            fon-size: 13px;
+            font-size: 13px;
         }
     }
     .right {
         width: 70%;
-        p {
-            fon-size: 13px;
+        p, a {
+            font-size: 13px;
         }
     }
 }
@@ -89,9 +99,19 @@ const WorkBy = styled.div`
     bottom: 35px;
     width: 100%;
     text-align: center;
+    text-transform: uppercase;
+    @media (max-width: 680px) {
+        position: relative;
+        margin-top: 100px;
+        display: block;
+            p, a {
+                font-size: 13px;
+            }
+        }
     a {
         color: black;
         text-decoration: underline;
+       
     }
 `
 

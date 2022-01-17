@@ -37,7 +37,7 @@ h5 {
 h6 {
     font-size: var(--headline-6);
 }
-p, a, li, .paragraph {
+p, a, li, .paragraph, button {
   font-size: var(--paragraph);
   line-height: 132%;
 }

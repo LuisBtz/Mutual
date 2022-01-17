@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import * as ScrollMagic from "scrollmagic-with-ssr"; // Or use scrollmagic-with-ssr to avoid server rendering problems
 import { gsap, TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
@@ -136,7 +136,6 @@ const ProjectsContainer = styled.section`
     align-items: center;
     justify-content: center;
     /* padding: 0 8rem; */
-    cursor: pointer;
   }
   .panel a {
     display: contents;
@@ -156,6 +155,7 @@ const ProjectsContainer = styled.section`
     width: auto;
     margin: 0 8rem;
     object-fit: cover;
+    cursor: pointer;
   }
 
   .panel.h10 img {

@@ -32,7 +32,7 @@ export default {
           name: 'alignment',
           title: 'Alignment',
           type: 'string',
-          description: 'Select the height of the image:',
+          description: 'Select the alignment of the image:',
           options: {
               list: [
                   {title: 'Left', value: 'left'},

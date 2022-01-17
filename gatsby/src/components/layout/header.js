@@ -114,7 +114,7 @@ background: white;
   position: fixed;
   width: 100%;
   height: 50px;
-  z-index: 1;
+  z-index: 3;
   .logo {
     position: absolute;
     left: 50%;
@@ -142,23 +142,25 @@ background: white;
   }
   .overlay {
     display: block;
-    opacity: 1;
-    transition: all ease-in-out 500ms;
+    position: fixed;
+    background: rgba(0, 0, 0, 0);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 100%;
   }
   
   .projects {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
+    transform: translateX(-100%);
     bottom: 0;
     background-color: white;
     padding: 70px 20px 0;
     z-index: 999;
     width: 450px;
-    transition: all ease-in-out 500ms;
-    @media (max-width: 650px) {
-      width: 100%;
-    }
+    transition: transform ease-in-out 500ms;
     ul {
       width: 100%;
       li {
@@ -172,7 +174,12 @@ background: white;
           justify-content: space-between;
           transition: color ease-in-out 350ms;
           &:hover {
-            color: #AFB1B1 !important;
+            color: #AFB1B1;
+            @media (max-width: 650px) {
+              color: black;
+              transition: none;
+              text-decoration: none;
+            }
           }
           @media (max-width: 415px) {
             p {
@@ -190,18 +197,14 @@ background: white;
   }
 
   .show-proj {
-    display: block;
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
     right: 0;
-    opacity: 1;
     z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
     .projects {
-      left: 0;
-      transition: all ease-in-out 500ms;
+      transform: translateX(0);
+      @media (max-width: 650px) {
+        width: 100%;
+      }
     }
   }
   
@@ -237,6 +240,11 @@ background: white;
         width: auto;
         margin-right: 20px;
         font-weight: normal;
+      }
+      @media (max-width: 650px) {
+        button {
+          transform: translateY(-1px);
+        }
       }
     }
     @media (max-width: 830px) {

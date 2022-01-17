@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100vw;
         overflow-x: hidden;
         position: relative;
+        -webkit-font-smoothing: antialiased;
     }
 body.dark {
   background-color: black;
