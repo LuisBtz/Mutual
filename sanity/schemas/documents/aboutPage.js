@@ -11,6 +11,11 @@ export default {
             type: 'string',
         },
         {
+            name: 'image',
+            title: 'About Image',
+            type: 'imageType'
+        },
+        {
             name: 'aboutUs',
             title: 'About Us',
             type: 'blockModule'

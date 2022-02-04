@@ -7,33 +7,43 @@ const About = ({data}) => {
 
     return(
         <AboutContainer>
-            <AboutSection className='item'>
-                <div className='left'>
-                    <h1>(ABOUT US)</h1>
-                </div>
-                <div className='right'>
-                    <BlockContent
-                        blocks={data.sanityAboutPage._rawAboutUs}
-                    />
-                </div>
-            </AboutSection>
-            <PressSection className='item'>
-                <div className='left'>
-                        <h2>(Press)</h2>
-                </div>
-                <ul className='right'>
-                    {data.sanityAboutPage.press.map(({ title, url, _key }) => {
-                        return (
-                            <li key={_key}><a target='_blank' rel="noreferrer" href={url}>{title}</a></li>
-                        )
-                    })}
-                </ul>
-            </PressSection>
-            <WorkBy>
-                <BlockContent
-                    blocks={data.sanitySettingsPage._rawCopyright}
-                />
-            </WorkBy>
+            <div className='imagen'>
+                <img src={data.sanityAboutPage.image.asset.url} alt={data.sanityAboutPage.image.alt} />
+            </div>
+            <div className='items'>
+                <AboutSection className='item'>
+                    <div className='left'>
+                        <h1>(ABOUT US)</h1>
+                    </div>
+                    <div className='right'>
+                        <BlockContent
+                            blocks={data.sanityAboutPage._rawAboutUs}
+                        />
+                    </div>
+                </AboutSection>
+                <PressSection className='item'>
+                    <div className='left'>
+                            <h2>(Press)</h2>
+                    </div>
+                    <ul className='right'>
+                        {data.sanityAboutPage.press.map(({ title, url, _key }) => {
+                            return (
+                                <li key={_key}><a target='_blank' rel="noreferrer" href={url}>{title}</a></li>
+                            )
+                        })}
+                    </ul>
+                </PressSection>
+                <ContactSection className='item'>
+                    <div className='left'>
+                        <h1>(Contact)</h1>
+                    </div>
+                    <div className='right'>
+                        <a href={`mailto:${data.sanityContactPage.email}`}>{data.sanityContactPage.email}</a>
+                        <a href={data.sanityContactPage.instagram.instagramLink}>{data.sanityContactPage.instagram.instagramName}</a>
+                    </div>
+                </ContactSection>
+            </div>
+            
 
         </AboutContainer>
     )
@@ -41,14 +51,27 @@ const About = ({data}) => {
 
 const AboutContainer = styled.section`
 padding-top: 100px;
-width: 100%;
+width: 80%;
 margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(12, 1fr);
+display: flex;
 position: relative;
 @media (max-width: 650px) {
-        display: block;
+        flex-direction: column-reverse;
+        padding-bottom: 100px;
     }
+.imagen {
+    width: 100%;
+}
+.items {
+    padding: 0 50px;
+    box-sizing: border-box;
+    a {
+        color: black;
+    }
+    @media (max-width: 650px) {
+        padding: 0;
+    }
+}
 .item {
     display: flex;
     margin-bottom: 30px;
@@ -77,8 +100,6 @@ position: relative;
 `
 
 const AboutSection = styled.div`
-grid-column: 6/10;
-grid-row: 1;
 .left {
         width: 30%;
     }
@@ -86,11 +107,7 @@ grid-row: 1;
     width: 70%;
 }
 
-@media (max-width: 950px) {
-    grid-column: 5/11;
-}
 @media (max-width: 650px) {
-    grid-column: 1/13;
     .left {
         width: 30%;
         h2, h1 {
@@ -107,10 +124,10 @@ grid-row: 1;
 
 `
 const PressSection = styled.div`
-grid-row: 2;
-grid-column: 6/10;
-@media (max-width: 950px) {
-    grid-column: 5/11;
+.right {
+    a {
+        display: block;
+    }
 }
 
 .left {
@@ -122,7 +139,6 @@ grid-column: 6/10;
 
 
 @media (max-width: 650px) {
-    grid-column: 1/13;
     .left {
         width: 30%;
         h2, h1 {
@@ -138,24 +154,34 @@ grid-column: 6/10;
 }
 `
 
-const WorkBy = styled.div`
-    position: fixed;
-    bottom: 35px;
-    width: 100%;
-    text-align: center;
-    text-transform: uppercase;
-    @media (max-width: 680px) {
-        position: relative;
-        margin-top: 100px;
-        display: block;
-            p, a {
-                font-size: 13px;
-            }
-        }
-    a {
-        color: black;
-        text-decoration: underline;
-       
+
+
+const ContactSection = styled.div`
+.left {
+        width: 30%;
     }
+.right {
+    width: 70%;
+    a {
+        display: block;
+    }
+}
+@media (max-width: 650px) {
+    .left {
+        width: 30%;
+        h2, h1 {
+            font-size: 13px;
+        }
+    }
+    .right {
+        width: 70%;
+        p, a {
+            font-size: 13px;
+        }
+    }
+}
+
 `
+
+
 export default About 

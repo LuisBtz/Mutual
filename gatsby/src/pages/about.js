@@ -7,6 +7,12 @@ import { graphql } from "gatsby";
 export const data = graphql`
   query {
     sanityAboutPage {
+      image {
+        asset {
+          url
+        }
+        alt
+      }
       _rawAboutUs
       press {
         _key
@@ -14,11 +20,16 @@ export const data = graphql`
         url
       }
     }
-    sanitySettingsPage {
-      _rawCopyright
+    sanityContactPage {
+      email
+      instagram {
+        instagramLink
+        instagramName
+      }
     }
   }
 `;
+
 
 // markup
 const AboutPage = ({ data }) => {

@@ -3,8 +3,7 @@ import styled from "styled-components";
 import * as ScrollMagic from "scrollmagic-with-ssr"; // Or use scrollmagic-with-ssr to avoid server rendering problems
 import { gsap, TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-import { Link } from 'gatsby';
-
+import TransitionLink from "gatsby-plugin-transition-link";
 if (typeof window !== "undefined") {
   ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 }
@@ -58,7 +57,55 @@ const Projects = ({ data }) => {
               animate = _key;
             }}
           >
-            <Link
+            <TransitionLink
+              exit={{
+                trigger: ({ exit, node }) => {
+                  console.log(node, animate);
+                  const image = document.querySelector(
+                    `img[data-slug="${animate}"]`
+                  );
+                  const xCenter = window.innerWidth / 2;
+                  const yCenter = window.innerHeight / 2;
+                  const vw40 = (window.innerWidth / 100) * 40;
+                  const imageLeft = image.getBoundingClientRect().left;
+                  const imageRight =
+                    window.innerWidth - image.getBoundingClientRect().right;
+                  const imageTop = image.getBoundingClientRect().top;
+                  const imageBottom =
+                    window.innerHeight - image.getBoundingClientRect().bottom;
+                  let imageSide = imageLeft > xCenter ? imageRight : imageLeft;
+                  let imageTopDecide =
+                    imageTop > yCenter ? imageRight : imageTop;
+
+                  gsap.set(image.closest(".scrollmagic-pin-spacer"), {
+                    zIndex: 999,
+                  });
+                  gsap.to(image, 1, {
+                    y: yCenter - (image.clientHeight / 2 + imageTop),
+                    width: "calc(100vw - 30px)",
+                    height: "100vh",
+                    margin: 0,
+                  });
+                },
+                length: 1,
+              }}
+              entry={{
+                delay: 1,
+                trigger: ({ node }) => {
+                  // remove if yo dont want to animate upcoming page which is scaling down
+                  const images = node.querySelectorAll(".slideCont img");
+                  gsap.fromTo(
+                    images,
+                    1,
+                    {
+                      scale: 1.3,
+                    },
+                    {
+                      scale: 1,
+                    }
+                  );
+                },
+              }}
               to={`${selectProject.slug.current}`}
             >
               {/* <GatsbyImage
@@ -68,7 +115,7 @@ const Projects = ({ data }) => {
           /> */}
 
               <img src={image.asset.url} alt={image.alt} data-slug={_key} />
-            </Link>
+            </TransitionLink>
           </section>
         );
       })}
