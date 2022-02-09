@@ -230,6 +230,15 @@ background: white;
       button {
         text-transform: uppercase;
         color: black;
+        transition: color ease-in-out 350ms;
+        &:hover {
+            color: #AFB1B1;
+            @media (max-width: 650px) {
+              color: black;
+              transition: none;
+              text-decoration: none;
+            }
+          }
       }
       button,
       a {

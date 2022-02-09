@@ -79,6 +79,7 @@ position: relative;
         padding: 20px;
     }
     h1, h2 {
+        font-family: var(--reg);
         font-size: 1rem;
         font-style: normal;
         font-weight: normal;

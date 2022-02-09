@@ -28,6 +28,7 @@ function SamplePrevArrow(props) {
 
 
 
+
 // markup
 const SingleProjectPage = ({ data: { project } }) => {
   const settings = {

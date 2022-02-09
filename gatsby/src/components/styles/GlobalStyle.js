@@ -75,9 +75,6 @@ a, a:visited {
   color: #2e639e;
 }
 
-a:hover {
-  text-decoration: underline;
-}
 
 .touchonly {
   display: none;
