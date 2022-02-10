@@ -21,7 +21,8 @@ const About = ({data}) => {
                         />
                     </div>
                 </AboutSection>
-                <PressSection className='item'>
+                {data.sanityAboutPage.press.length !== 0 ? 
+                    <PressSection className='item'>
                     <div className='left'>
                             <h2>(Press)</h2>
                     </div>
@@ -33,6 +34,10 @@ const About = ({data}) => {
                         })}
                     </ul>
                 </PressSection>
+                : 
+                    ''
+                }
+                
                 <ContactSection className='item'>
                     <div className='left'>
                         <h1>(Contact)</h1>
