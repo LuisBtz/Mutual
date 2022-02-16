@@ -26,6 +26,11 @@ function SamplePrevArrow(props) {
 }
 
 
+function n(num, len = 2) {
+  return `${num}`.padStart(len, '0');
+}
+
+
 
 
 
@@ -42,11 +47,20 @@ const SingleProjectPage = ({ data: { project } }) => {
     pauseOnHover: false,
     waitForAnimate: true,
     speed: 0,
+    beforeChange: function (currentSlide, nextSlide) {
+      console.log('before change', currentSlide, nextSlide);
+      setActiveSlideIndex(nextSlide);
+    },
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
 
+  console.log()
+
   const [details, showDetails] = useState(false);
+
+
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   return (
     <Layout>
@@ -87,10 +101,14 @@ const SingleProjectPage = ({ data: { project } }) => {
           </SliderContainer>
           <div className="button">
             <button onClick={() => showDetails(!details)}>details ↑</button>
+            <div className='counter'>
+              <p>{n(activeSlideIndex + 1)}/{n(project.slider.length)}</p>
+            </div>
           </div>
           <div className='swipe'>
             <p>(SWIPE)</p>
           </div>
+          
         </ContenedorImages>
         <DescriptionContainer>
           <div className="description">
@@ -149,7 +167,25 @@ const ContenedorImages = styled.div`
       text-transform: uppercase;
       font-weight: normal;
     }
+    .counter {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      p {
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 13px;
+      }
+    }
+    
   }
+
+
+
+
   .swipe {
     display: none;
     position: absolute;
