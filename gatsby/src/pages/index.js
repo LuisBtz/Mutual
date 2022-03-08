@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo
-        title="Home Page" /*image={data.sanityHomePage.exhibitionsHF.thumbnailCover.asset.url} */
+        title="MUTUAL, PHOTOGRAPHY AND DIRECTION" image={data.sanityHomePage.projects[0].image.asset.url}
       />
 
       <Projects data={data} />

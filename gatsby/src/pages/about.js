@@ -36,7 +36,7 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
       <Seo
-        title="About Page" /*image={data.sanityHomePage.exhibitionsHF.thumbnailCover.asset.url} */
+        title="ABOUT US" image={data.sanityAboutPage.image.asset.url} description={data.sanityAboutPage.image.alt}
       />
       <About data={data} />
     </Layout>

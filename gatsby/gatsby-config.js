@@ -5,11 +5,11 @@ const siteUrl = `https://www.netlify.com/`;
 module.exports = {
   siteMetadata: {
     title: `Mutual`,
-    description: `Description Mutual`,
+    description: `MUTUAL, PHOTOGRAPHY AND DIRECTION FOR THE FOOD, WINE AND HOSPITALITY INDUSTRY`,
     author: `Mutual`,
     siteUrl,
     social: {
-      twitter: `schaudustin`,
+      twitter: `mutual.cc`,
     },
   },
   plugins: [
