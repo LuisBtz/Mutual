@@ -115,13 +115,13 @@ const AboutSection = styled.div`
 
 @media (max-width: 650px) {
     .left {
-        width: 30%;
+        width: 35%;
         h2, h1 {
             font-size: 13px;
         }
     }
     .right {
-        width: 70%;
+        width: 65%;
         p {
             font-size: 13px;
         }
@@ -146,13 +146,13 @@ const PressSection = styled.div`
 
 @media (max-width: 650px) {
     .left {
-        width: 30%;
+        width: 35%;
         h2, h1 {
             font-size: 13px;
         }
     }
     .right {
-        width: 70%;
+        width: 65%;
         p, a {
             font-size: 13px;
         }
@@ -174,13 +174,13 @@ const ContactSection = styled.div`
 }
 @media (max-width: 650px) {
     .left {
-        width: 30%;
+        width: 35%;
         h2, h1 {
             font-size: 13px;
         }
     }
     .right {
-        width: 70%;
+        width: 65%;
         p, a {
             font-size: 13px;
         }
