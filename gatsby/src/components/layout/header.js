@@ -6,7 +6,7 @@ import Link from "gatsby-plugin-transition-link";
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
-      allSanityProjects {
+      allSanityProjects(sort: {order: DESC, fields: _updatedAt}) {
         edges {
           node {
             _key
