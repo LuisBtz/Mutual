@@ -1,6 +1,6 @@
 const path = require("path");
 
-const siteUrl = `https://www.netlify.com/`;
+const siteUrl = `https://www.mutual.cc/`;
 
 module.exports = {
   siteMetadata: {
