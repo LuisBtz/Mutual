@@ -7,6 +7,7 @@ import { graphql } from "gatsby";
 export const data = graphql`
   query {
     sanityAboutPage {
+      title
       image {
         asset {
           url
@@ -36,7 +37,7 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
       <Seo
-        title="ABOUT US" image={data.sanityAboutPage.image.asset.url} description={data.sanityAboutPage.image.alt}
+        title={data.sanityAboutPage.title} image={data.sanityAboutPage.image.asset.url} description={data.sanityAboutPage.image.alt}
       />
       <About data={data} />
     </Layout>

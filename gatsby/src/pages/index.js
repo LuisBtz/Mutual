@@ -7,6 +7,7 @@ import Layout from "../components/layout/layout";
 export const data = graphql`
   query {
     sanityHomePage {
+      title
       projects {
         _key
         height
@@ -38,7 +39,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo
-        title="MUTUAL, PHOTOGRAPHY AND DIRECTION" image={data.sanityHomePage.projects[0].image.asset.url}
+        title={data.sanityHomePage.title} image={data.sanityHomePage.projects[0].image.asset.url}
       />
 
       <Projects data={data} />

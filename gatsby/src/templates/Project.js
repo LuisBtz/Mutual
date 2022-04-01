@@ -65,7 +65,7 @@ const SingleProjectPage = ({ data: { project } }) => {
   return (
     <Layout>
       <Seo
-        title="Project" /*image={data.sanityHomePage.exhibitionsHF.thumbnailCover.asset.url} */
+        title={project.projectName} image={project.slider[0].photo.asset.url} description={project.description}
       />
       <Contenedor>
         <ContenedorImages className={details ? "altura imagenes" : "imagenes"}>
