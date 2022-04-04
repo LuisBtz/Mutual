@@ -300,7 +300,7 @@ const SliderContainer = styled(Slider)`
         height: calc(70vh - 130px);
         /* height: calc(70lvh - 130px) !important; */
         img {
-        width: 100%;
+        width: auto;
         align-self: center;
         max-height: -webkit-fill-available;
         }
