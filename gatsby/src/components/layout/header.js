@@ -26,6 +26,12 @@ const Header = () => {
             url
           }
         }
+        icon {
+          alt
+          asset {
+            url
+          }
+        }
       }
     }
   `);
@@ -44,7 +50,10 @@ const Header = () => {
           showProjects(!falseState);
         }}
       >
-        <img src="./icon.svg" alt="Mutual icon" />
+        <img
+          src={data.sanitySettingsPage.icon.asset.url}
+          alt={data.sanitySettingsPage.icon.alt}
+        />
       </button>
       <Link to="/" className="logo">
         <img

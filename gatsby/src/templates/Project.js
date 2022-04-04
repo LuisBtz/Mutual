@@ -140,7 +140,7 @@ const Contenedor = styled.div`
     transition: all 350ms ease-in-out;
     @media (max-width: 850px) {
       height: 100vh;
-      height: 100lvh;
+      height: 100lvh !important;
     }
   }
   .altura {
@@ -149,7 +149,7 @@ const Contenedor = styled.div`
     transition: all 350ms ease-in-out;
     @media (max-width: 850px) {
       height: 100vh;
-      height: 100lvh;
+      height: 100lvh !important; 
     }
   }
 `;
@@ -298,7 +298,7 @@ const SliderContainer = styled(Slider)`
       height: calc(70vh - 100px);
       @media (max-width: 830px) {
         height: calc(70vh - 130px);
-        height: calc(70lvh - 130px);
+        height: calc(70lvh - 130px) !important;
         img {
         width: 100%;
         align-self: center;
@@ -314,7 +314,7 @@ const SliderContainer = styled(Slider)`
       height: calc(100vh - 100px);
       @media (max-width: 830px) {
         height: calc(100vh - 130px);
-        height: calc(100lvh - 130px);
+        height: calc(100lvh - 130px) !important;
       }
     }
   }

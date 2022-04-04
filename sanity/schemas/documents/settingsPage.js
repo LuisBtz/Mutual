@@ -21,6 +21,11 @@ export default {
             type: 'imageType'
         },
         {
+            name: 'icon',
+            title: 'Icon',
+            type: 'imageType'
+        },
+        {
             name: 'copyright',
             title: 'Copyright',
             type: 'blockModule'
