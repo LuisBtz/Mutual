@@ -134,16 +134,15 @@ const SingleProjectPage = ({ data: { project } }) => {
 const Contenedor = styled.div`
   height: 100vh;
   overflow-y: hidden;
+  position: relative;
   .imagenes {
     height: 100vh;
     transition: all 350ms ease-in-out;
   }
   .altura {
-    height: 70vh;
+    height: 70vh !important;
+    overflow-y: hidden;
     transition: all 350ms ease-in-out;
-    @media (max-width: 830px) {
-      height: 70vh;
-    }
   }
 `;
 
@@ -202,7 +201,7 @@ const ContenedorImages = styled.div`
 `;
 
 const DescriptionContainer = styled.div`
-  height: 30vh;
+  height: 30vh !important;
   overflow: scroll;
   position: relative;
   width: calc(100% - 30px);
@@ -211,9 +210,6 @@ const DescriptionContainer = styled.div`
   padding-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  @media (max-width: 830px) {
-    height: 30vh;
-  }
   .description {
     grid-column: 1/5;
     @media (max-width: 1060px) {
@@ -294,7 +290,6 @@ const SliderContainer = styled(Slider)`
       @media (max-width: 830px) {
         height: calc(70vh - 130px);
         img {
-          height: auto;
         width: 100%;
         align-self: center;
         max-height: -webkit-fill-available;
@@ -327,7 +322,6 @@ const Slide = styled.div`
       object-fit: cover;
       margin: 0 auto;
       @media (max-width: 830px) {
-        height: auto;
         width: 100%;
         align-self: center;
         max-height: -webkit-fill-available;
