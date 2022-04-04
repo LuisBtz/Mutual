@@ -284,4 +284,10 @@ a {
 img {
   width: 100%;
 }
+
+button, a {
+  &:hover, &:active, &:focus {
+        color: var(--black) !important;
+      }
+}
 `
