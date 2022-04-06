@@ -47,6 +47,9 @@ const SingleProjectPage = ({ data: { project } }) => {
     pauseOnHover: false,
     waitForAnimate: true,
     speed: 0,
+    draggable: false,
+    swipeToSlide: true,
+    touchMove: true,
     beforeChange: function (currentSlide, nextSlide) {
       console.log('before change', currentSlide, nextSlide);
       setActiveSlideIndex(nextSlide);
@@ -106,7 +109,8 @@ const SingleProjectPage = ({ data: { project } }) => {
             </div>
           </div>
           <div className='swipe'>
-            <p>(SWIPE)</p>
+            <p>(Prev)</p>
+            <p>(Next)</p>
           </div>
           
         </ContenedorImages>
@@ -198,10 +202,13 @@ const ContenedorImages = styled.div`
     display: none;
     position: absolute;
     bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    p {
+      text-transform: uppercase;
+    }
     @media (max-width: 830px) {
-      display: block;
+      display: flex;
+      justify-content: space-between;
       p {
         font-size: 13px;
       }
@@ -261,9 +268,6 @@ const SliderContainer = styled(Slider)`
   .slick-arrow {
     position: absolute;
     z-index: 1;
-    @media (max-width: 830px) {
-        display: none;
-      }
     p {
       font-size: 1.5rem;
       font-weight: normal;
@@ -280,6 +284,9 @@ const SliderContainer = styled(Slider)`
     p {
       display: none;
     }
+    @media (max-width: 850px) {
+      height: 98%;
+    }
   }
   .slick-next {
     top: 50px !important;
@@ -290,6 +297,9 @@ const SliderContainer = styled(Slider)`
     cursor: url('./next.png'), auto;
     p {
       display: none;
+    }
+    @media (max-width: 850px) {
+      height: 98%;
     }
   }
   .active {
